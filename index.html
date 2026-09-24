@@ -1,302 +1,1234 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saloni | Data Analytics Portfolio</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Saloni Duddu - Data Science Student Portfolio">
+
+    <title>Saloni Duddu | Data Science Portfolio</title>
 
     <style>
+
+        /* =========================================
+           RESET & BASIC SETTINGS
+        ========================================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f5f7fa;
-            color: #333;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #050816;
+            color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        header {
-            background: #1f2937;
-            color: white;
-            padding: 20px 10%;
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           ANIMATED BACKGROUND
+        ========================================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -2;
+
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    #302b63 0%,
+                    transparent 35%
+                ),
+
+                radial-gradient(
+                    circle at 85% 80%,
+                    #123c69 0%,
+                    transparent 35%
+                ),
+
+                #050816;
+        }
+
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+
+            animation:
+                floating 12s infinite ease-in-out;
+        }
+
+
+        .blob.one {
+            width: 300px;
+            height: 300px;
+
+            background: #6c63ff;
+
+            top: 10%;
+            left: 5%;
+        }
+
+
+        .blob.two {
+            width: 350px;
+            height: 350px;
+
+            background: #00c6ff;
+
+            right: 5%;
+            top: 40%;
+
+            animation-delay: 3s;
+        }
+
+
+        .blob.three {
+            width: 250px;
+            height: 250px;
+
+            background: #9b5de5;
+
+            left: 35%;
+            bottom: 5%;
+
+            animation-delay: 6s;
+        }
+
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform:
+                    translate(0, 0)
+                    scale(1);
+            }
+
+            50% {
+                transform:
+                    translate(40px, -50px)
+                    scale(1.15);
+            }
+
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        nav {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            padding: 18px 8%;
+
+            background:
+                rgba(5, 8, 22, 0.75);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.08);
         }
 
-        header h2 {
-            color: #60a5fa;
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b7cff,
+                    #00d9ff
+                );
+
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 20px;
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
         }
 
-        nav a:hover {
-            color: #60a5fa;
+
+        nav ul a {
+            color: #d7d9e8;
+            transition: 0.3s;
         }
 
-        section {
-            padding: 60px 10%;
+
+        nav ul a:hover {
+            color: #8b7cff;
         }
+
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
 
         .hero {
-            min-height: 80vh;
+
+            min-height: 100vh;
+
             display: flex;
-            flex-direction: column;
+
             justify-content: center;
+
             align-items: center;
+
             text-align: center;
-            background: white;
+
+            padding:
+                120px 8% 70px;
         }
+
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+
+        .badge {
+
+            display: inline-block;
+
+            padding:
+                9px 20px;
+
+            border-radius: 30px;
+
+            background:
+                rgba(139,124,255,0.12);
+
+            border:
+                1px solid
+                rgba(139,124,255,0.35);
+
+            color: #aaa1ff;
+
+            margin-bottom: 25px;
+
+            animation:
+                pulse 2s infinite;
+        }
+
+
+        @keyframes pulse {
+
+            0%, 100% {
+                box-shadow:
+                    0 0 0
+                    rgba(139,124,255,0);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 30px
+                    rgba(139,124,255,0.25);
+            }
+
+        }
+
 
         .hero h1 {
-            font-size: 45px;
-            margin-bottom: 10px;
+
+            font-size:
+                clamp(50px, 8vw, 90px);
+
+            line-height: 1.05;
+
+            margin-bottom: 20px;
         }
 
-        .hero span {
-            color: #2563eb;
+
+        .gradient-text {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #8b7cff,
+                    #00d9ff,
+                    #a855f7
+                );
+
+            background-size: 200% auto;
+
+            -webkit-background-clip: text;
+
+            color: transparent;
+
+            animation:
+                gradientMove 4s
+                linear infinite;
         }
+
+
+        @keyframes gradientMove {
+
+            to {
+                background-position:
+                    200% center;
+            }
+
+        }
+
+
+        .hero h2 {
+
+            color: #c3c7d9;
+
+            font-size:
+                clamp(20px, 3vw, 30px);
+
+            margin-bottom: 20px;
+        }
+
 
         .hero p {
-            font-size: 20px;
-            color: #666;
-            max-width: 600px;
-        }
 
-        .btn {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 12px 25px;
-            background: #2563eb;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-        }
+            color: #9299ae;
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 30px;
-        }
+            font-size: 18px;
 
-        .about {
-            text-align: center;
-            max-width: 800px;
+            max-width: 720px;
+
             margin: auto;
         }
 
-        .skills {
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
+        .buttons {
+
             display: flex;
-            flex-wrap: wrap;
+
             justify-content: center;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+
+            margin-top: 35px;
+        }
+
+
+        .btn {
+
+            padding:
+                14px 25px;
+
+            border-radius: 30px;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            display: inline-block;
+        }
+
+
+        .primary {
+
+            color: white;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #6c63ff,
+                    #00bcd4
+                );
+
+            box-shadow:
+                0 10px 30px
+                rgba(108,99,255,0.25);
+        }
+
+
+        .secondary {
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.18);
+
+            background:
+                rgba(255,255,255,0.04);
+        }
+
+
+        .btn:hover {
+
+            transform:
+                translateY(-5px)
+                scale(1.03);
+        }
+
+
+        /* =========================================
+           STATS
+        ========================================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            max-width: 750px;
+
+            margin:
+                60px auto 0;
+
+            gap: 20px;
+        }
+
+
+        .stat {
+
+            padding: 20px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            border-radius: 18px;
+
+            backdrop-filter: blur(10px);
+
+            transition: 0.3s;
+        }
+
+
+        .stat:hover {
+
+            transform:
+                translateY(-7px);
+
+            border-color:
+                #756cff;
+        }
+
+
+        .stat h3 {
+
+            font-size: 30px;
+
+            color: #8b7cff;
+        }
+
+
+        .stat p {
+
+            color: #888fa5;
+        }
+
+
+        /* =========================================
+           GENERAL SECTIONS
+        ========================================= */
+
+        section {
+
+            padding:
+                100px 8%;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-title h2 {
+
+            font-size: 42px;
+        }
+
+
+        .section-title span {
+
+            color: #8b7cff;
+        }
+
+
+        .section-title p {
+
+            color: #888fa5;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-container {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 40px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.07),
+                    rgba(255,255,255,0.025)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+
+        .about-container:hover {
+
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(139,124,255,0.5);
+        }
+
+
+        .about-container p {
+
+            color: #aab0c1;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================
+           SKILLS
+        ========================================= */
+
+        .skills {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit,
+                minmax(180px, 1fr));
+
+            gap: 20px;
+        }
+
+
+        .skill {
+
+            padding:
+                30px 20px;
+
+            text-align: center;
+
+            border-radius: 20px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            transition: 0.4s;
+        }
+
+
+        .skill:hover {
+
+            transform:
+                translateY(-10px);
+
+            border-color:
+                #756cff;
+
+            box-shadow:
+                0 15px 40px
+                rgba(108,99,255,0.12);
+        }
+
+
+        .skill-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .skill h3 {
+
+            color: #e5e7f0;
+        }
+
+
+        .skill p {
+
+            color: #777f95;
+
+            font-size: 13px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================================
+           PROJECTS
+        ========================================= */
+
+        .projects {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit,
+                minmax(320px, 1fr));
+
+            gap: 30px;
+        }
+
+
+        .project {
+
+            position: relative;
+
+            padding: 32px;
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.08),
+                    rgba(255,255,255,0.025)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            transition: 0.4s;
+
+            overflow: hidden;
+        }
+
+
+        .project::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+
+            height: 150px;
+
+            border-radius: 50%;
+
+            background: #6c63ff;
+
+            filter: blur(80px);
+
+            opacity: 0.15;
+
+            right: -50px;
+
+            top: -50px;
+        }
+
+
+        .project:hover {
+
+            transform:
+                translateY(-12px);
+
+            border-color:
+                #7b70ff;
+
+            box-shadow:
+                0 20px 50px
+                rgba(0,0,0,0.3);
+        }
+
+
+        .project-number {
+
+            color: #8b7cff;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .project h3 {
+
+            font-size: 25px;
+
+            margin:
+                15px 0;
+        }
+
+
+        .project p {
+
+            color: #999fb3;
+        }
+
+
+        .tags {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 20px;
+        }
+
+
+        .tag {
+
+            padding:
+                6px 12px;
+
+            border-radius: 20px;
+
+            background:
+                rgba(139,124,255,0.12);
+
+            color: #aaa1ff;
+
+            font-size: 12px;
+        }
+
+
+        .project-link {
+
+            display: inline-block;
+
+            margin-top: 25px;
+
+            color: #8b7cff;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .project-link:hover {
+
+            letter-spacing: 1px;
+
+            color: #00d9ff;
+        }
+
+
+        /* =========================================
+           EDUCATION
+        ========================================= */
+
+        .education {
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+
+        .education-card {
+
+            padding: 35px;
+
+            border-left:
+                4px solid
+                #7b70ff;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border-radius:
+                0 20px 20px 0;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            border-right:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            border-bottom:
+                1px solid
+                rgba(255,255,255,0.06);
+
+            transition: 0.3s;
+        }
+
+
+        .education-card:hover {
+
+            transform:
+                translateX(8px);
+
+            border-left-color:
+                #00d9ff;
+        }
+
+
+        .education-card h3 {
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .education-card p {
+
+            color: #969db1;
+
+            margin: 7px 0;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-box {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 45px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(108,99,255,0.12),
+                    rgba(0,217,255,0.06)
+                );
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+        }
+
+
+        .contact-box > p {
+
+            color: #9ba2b5;
+
+            margin-bottom: 30px;
+        }
+
+
+        .contact-info {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .contact-item {
+
+            padding: 18px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,0.04);
+        }
+
+
+        .contact-item span {
+
+            display: block;
+
+            color: #777f95;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .contact-item a {
+
+            color: #dddff0;
+
+            word-break: break-word;
+
+            transition: 0.3s;
+        }
+
+
+        .contact-item a:hover {
+
+            color: #8b7cff;
+        }
+
+
+        .contact-buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            flex-wrap: wrap;
+
             gap: 15px;
         }
 
-        .skill {
-            background: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
 
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-
-        .project {
-            background: white;
-            width: 320px;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
-
-        .project h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
-
-        .project a {
-            display: inline-block;
-            margin-top: 15px;
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        #contact {
-            background: #1f2937;
-            color: white;
-            text-align: center;
-        }
-
-        #contact a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         footer {
+
+            padding: 30px;
+
             text-align: center;
-            padding: 15px;
-            background: #111827;
-            color: white;
+
+            border-top:
+                1px solid
+                rgba(255,255,255,0.08);
+
+            color: #737b90;
         }
 
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
+
+        footer span {
+
+            color: #8b7cff;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media(max-width: 700px) {
+
+            nav {
+
+                padding:
+                    15px 5%;
             }
 
-            nav a {
-                margin: 5px;
+
+            nav ul {
+
+                display: none;
             }
+
+
+            section {
+
+                padding:
+                    75px 6%;
+            }
+
+
+            .hero {
+
+                padding-top:
+                    120px;
+            }
+
 
             .hero h1 {
-                font-size: 35px;
+
+                font-size:
+                    52px;
             }
+
+
+            .hero h2 {
+
+                font-size:
+                    21px;
+            }
+
+
+            .stats {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .contact-info {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .project {
+
+                padding:
+                    25px;
+            }
+
+
+            .about-container {
+
+                padding:
+                    28px 20px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Navigation -->
-    <header>
-        <h2>Saloni</h2>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<!-- =========================================
+     ANIMATED BACKGROUND
+========================================== -->
+
+<div class="background">
+
+    <div class="blob one"></div>
+
+    <div class="blob two"></div>
+
+    <div class="blob three"></div>
+
+</div>
 
 
-    <!-- Home -->
-    <section class="hero">
-        <h1>Hi, I'm <span>Saloni</span> 👋</h1>
+
+<!-- =========================================
+     NAVIGATION
+========================================== -->
+
+<nav>
+
+    <div class="logo">
+        Saloni.
+    </div>
+
+
+    <ul>
+
+        <li>
+            <a href="#about">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="#skills">
+                Skills
+            </a>
+        </li>
+
+        <li>
+            <a href="#projects">
+                Projects
+            </a>
+        </li>
+
+        <li>
+            <a href="#education">
+                Education
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =========================================
+     HERO
+========================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+
+        <div class="badge">
+
+            ✨ Welcome to my portfolio
+
+        </div>
+
+
+        <h1>
+
+            Hi, I'm
+
+            <span class="gradient-text">
+                Saloni Duddu
+            </span>
+
+            👋
+
+        </h1>
+
+
+        <h2>
+
+            📊 Data Science Student
+            &
+            Data Analytics Enthusiast
+
+        </h2>
+
 
         <p>
-            A student aspiring to build a career in
-            Data Analytics and Machine Learning.
+
+            I enjoy transforming raw data into meaningful
+            insights, discovering patterns and building
+            data-driven solutions using Python, SQL,
+            Machine Learning and visualization tools.
+
         </p>
 
-        <a href="#projects" class="btn">View My Projects</a>
-    </section>
+
+        <div class="buttons">
 
 
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
+            <a
+                href="#projects"
+                class="btn primary"
+            >
 
-        <div class="about">
-            <p>
-                I am a student interested in Data Analytics,
-                Python, Machine Learning and working with data.
-                I enjoy learning new technologies and building
-                projects that solve real-world problems.
-            </p>
+                🚀 Explore My Projects
+
+            </a>
+
+
+            <a
+                href="#contact"
+                class="btn secondary"
+            >
+
+                📩 Contact Me
+
+            </a>
+
+
         </div>
-    </section>
 
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2>My Skills</h2>
 
-        <div class="skills">
-            <div class="skill">Python</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Excel</div>
-            <div class="skill">Power BI</div>
-            <div class="skill">Pandas</div>
-            <div class="skill">NumPy</div>
-            <div class="skill">Machine Learning</div>
-            <div class="skill">Git & GitHub</div>
-        </div>
-    </section>
+        <!-- STATS -->
+
+        <div class="stats">
 
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2>My Projects</h2>
+            <div class="stat">
 
-        <div class="projects">
-
-            <div class="project">
-                <h3>Fake News Detection</h3>
+                <h3>
+                    02
+                </h3>
 
                 <p>
-                    A machine learning project designed to
-                    identify whether a news article is real
-                    or fake using machine learning techniques.
+                    Projects
                 </p>
 
-                <a href="#" target="_blank">
-                    View Project →
-                </a>
             </div>
 
 
-            <div class="project">
-                <h3>Drug Prediction Using ML</h3>
+            <div class="stat">
+
+                <h3>
+                    08+
+                </h3>
 
                 <p>
-                    A machine learning project that uses
-                    data and ML algorithms to predict
-                    suitable drug-related outcomes.
-                </p>
-
-                <a href="#" target="_blank">
-                    View Project →
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- Contact -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-
-        <p>Email:
-            <a href="mailto:saloniduddu@gmail.com">
-                saloniduddu@gmail.com
-            </a>
-        </p>
-
-        <p>GitHub:
-            <a href="#" target="_blank">
-               saloni duddu
-            </a>
-        </p>
-
-        <p>LinkedIn:
-            <a href="#" target="_blank">
-                My LinkedIn
-            </a>
-        </p>
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Saloni. All Rights Reserved.</p>
-    </footer>
-
-</body>
-</html>
